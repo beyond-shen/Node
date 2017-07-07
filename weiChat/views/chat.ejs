@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chat class</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" >
+
+  </head>
+  <script src="http://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <body>
+      <div data-role='page'>
+      <style>
+       * {
+        margin: 0;
+        padding: 0;
+        box-sizing:
+        border-box;
+      }
+       body {
+         font: 13px Helvetica, Arial;
+       }
+       #hed-fot{
+        height: 60px;
+        background:rgb(180, 244, 123) ;
+        font-size: 20px;
+        color: rgb(34, 58, 214);
+      }
+      #ma{
+         width: 100%;
+         height: 40px;
+      }
+      #ma1{
+        width: 25%;
+        height: 40px;
+        position: absolute;
+        right:0;
+        bottom:3px;
+        background: rgb(30, 172, 242);
+      }
+      #form1{
+        width: 70%;
+        height: 50px;
+        margin-left: 10px;
+      }
+      li{
+        list-style: none;
+      }
+      .me{
+        color: red;
+        width: 350px;
+        margin-right: 20px;
+        /*border: 1px solid gray;*/
+        border-radius: 15%;
+        /*text-align: -center;*/
+      }
+      .other{
+        color: green;
+        /*border: 1px solid blue;*/
+        border-radius: 15%;
+      }
+      #nicheng{
+         /*width: 100px; */
+         display: inline-block;
+         /*border: 1px solid gray;*/
+         font-size: 16px;
+         margin-left: 50px;
+         border-radius: 50px;
+         color: rgb(100, 14, 159);
+      }
+
+     </style>
+          <div data-role="header" data-position="fixed" id="hed-fot">
+              <div><h1>聊天室<span id="nicheng"><%= nicheng %></span></h1></div></div>
+          <div role="main">
+            <ul id="messages"></ul>
+          </div>
+          <div data-role="footer" data-position="fixed">
+              <form id="form1" action="">
+                  <input id="ma"  autocomplete="off /" placeholder="正在输入中">
+                  <button type="submit" id="ma1">Send</button>
+              </form>
+          </div>
+
+          <!--问题:jquery monile不能解析script? 必须把script写在带data-role="page"的div里面  -->
+          <script type="text/javascript">
+          var  person = '<%= nicheng %>';  //登录用户的昵称
+          // console.log(person);
+          var socket = io();
+            $('form').submit(function(){
+              var val = $('#ma').val();
+              // console.log(val);
+                socket.emit('chat message',val, person);
+                $('#ma').val(''); //清空
+                return false;
+            });
+            socket.on('chat message1',function(msg,person2){
+              // console.log(msg);
+              if(person === person2){
+                $('#messages').append('<div style="text-align:right"><li class="me">'+ person + ":" +  msg + '</li></div>');
+              }
+              else{
+                $('#messages').append('<div style="text-align:left"><li class="other">'+ person2 + ":" +  msg + '</li></div>');
+              }
+              });
+
+
+          </script>
+      </div>
+  </body>
+</html>

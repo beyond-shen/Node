@@ -1,0 +1,50 @@
+<!-- 找回密码 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>找回密码</title>
+    <style media="screen">
+      #hed-fot{
+        height: 10%;
+        background:rgb(43, 185, 7) ;
+        font-size: 20px;
+        color: rgb(34, 58, 214);
+        text-align: center;
+      }
+      #form{
+        padding: 30px 0;
+      }
+      #form input{
+        font-size: 20px;
+      }
+      #link-a{
+        display: inline-block;
+        margin:0px 6px;
+        background: red;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <body>
+    <div data-role='page'>
+   <div data-role="header" data-position="fixed" id="hed-fot"><h1>找回密码</h1></div>
+   <div role="main">
+     <form action="/searchOK" method="POST" id="form">
+       <div style="color:red"><%= tishi4 %></div>
+       <input type="email" name="username2" placeholder="登录账号" required><br>
+       <input type="text" name="keywords2" placeholder="你的出生地" required><br>
+       <input type="password" name="password3" placeholder="请输入新密码" required> <br>
+       <!-- <input type="password" name="password4" placeholder="再次输入新密码" required> <br> -->
+       <button type="submit" id='hed-fot' style="color:red;background:rgb(33, 215, 227)">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+     </form>
+    </div>
+   <div data-role="footer" data-position="fixed" id="hed-fot"></div>
+ </div>
+
+  </body>
+</html>

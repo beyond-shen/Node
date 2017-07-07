@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <title>登录页面</title>
+    <style media="screen">
+      *{
+        margin:0;
+        padding:0
+      }
+      .row > .col-md-12 > #h1{
+        color: red;
+        text-align: center;
+        margin-bottom:50px;
+      }
+      .row .col-sm-12 form{
+        text-align: center;
+      }
+      .row .col-md-12 p{
+        margin: 20px 0px;
+      }
+      .row .fd{
+        margin: auto;
+        width: 400px;
+        height: 400px;
+      }
+      #btn{
+        width: 230px;
+        height: 50px;
+        background: rgb(235, 20, 20);
+        border-radius: 20px;
+        font-size: 24px;
+        /*letter-spacing: 50px;*/
+        /*text-align: center;*/
+      }
+      input{
+        height: 30px;
+        font-size: 25px;
+      }
+      .view{
+        color:red;
+        visibility: hidden;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xm-12">
+        <h1 id="h1">用户登录界面</h1>
+        <form method="POST" action="/url">
+            <fieldset class="fd">
+                <label><strong>非本人操作请拨打10086</strong></label>
+                <p>用户名:&nbsp;&nbsp;<input type="email" required name="username" placeholder="请输入登录邮箱"></p>
+                <!-- <p>用户名不能为空</p> -->
+                <p>密　码:&nbsp;&nbsp;<input type="password" required name="password" placeholder="请输入登录密码" minlength="8"></p>
+                <!-- <p>密码不能为空</p> -->
+                <!-- <p class="view">密码不能少于8位</p> -->
+                <p><button id="btn">立即登录</button></p>
+                <a href="./index.html">注册</a>
+                <a href="#">忘记密码?</a>
+              </fieldset>
+        </form>
+      </div>
+<script type="text/javascript">
+  $(function(){
+  });
+</script>
+
+</body>
+
+</html>

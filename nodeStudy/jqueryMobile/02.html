@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <body>
+    <label><input type="checkbox" name="checkbox-0" /> I agree </label>
+<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+<label for="checkbox-1"> I agree </label>
+
+<div  data-role="fieldcontain">
+      <form>
+    <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Choose as many snacks as you'd like:</legend>
+      <input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" />
+      <label for="checkbox-1a">Cheetos</label>
+
+      <input type="checkbox" name="checkbox-2a" id="checkbox-2a" class="custom" />
+      <label for="checkbox-2a">Doritos</label>
+
+      <input type="checkbox" name="checkbox-3a" id="checkbox-3a" class="custom" />
+      <label for="checkbox-3a">Fritos</label>
+
+      <input type="checkbox" name="checkbox-4a" id="checkbox-4a" class="custom" />
+      <label for="checkbox-4a">Sun Chips</label>
+      </fieldset>
+  </form>
+</div>
+
+<div data-role="navbar">
+	<ul>
+		<li><a href="60.html">One</a></li>
+		<li><a href="61.html">Two</a></li>
+	</ul>
+</div> <!-- /navbar -->
+
+
+<div data-role="footer">
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#" data-icon="grid">Summary</a></li>
+      <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+      <li><a href="#" data-icon="gear">Setup</a></li>
+    </ul>
+  </div><!-- /navbar -->
+</div><!-- /footer -->
+
+
+<div data-role="footer">
+      <div data-role="navbar" data-iconpos="bottom">
+    			<ul>
+    				<li><a href="#" data-icon="grid">Summary</a></li>
+    				<li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+    				<li><a href="#" data-icon="gear">Setup</a></li>
+    			</ul>
+    		</div><!-- /navbar -->
+    	</div><!-- /footer -->
+
+      <div data-role="footer">
+    		<div data-role="navbar">
+    			<ul>
+    				<li><a href="#" data-icon="grid" data-theme="a">A</a></li>
+    				<li><a href="#" data-icon="star" data-theme="b">B</a></li>
+    				<li><a href="#" data-icon="gear" data-theme="c">C</a></li>
+    				<li><a href="#" data-icon="arrow-l" data-theme="d">D</a></li>
+    				<li><a href="#" data-icon="arrow-r" data-theme="e">E</a></li>
+    			</ul>
+    		</div><!-- /navbar -->
+    	</div><!-- /footer -->
+
+
+      <div data-role="collapsible-set">
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Section 1</h3>
+		<p>I'm the collapsible content in a set so this feels like an accordion. I'm open by default because I have the <code>data-collapsed="false"</code> attribute.</p>
+	</div>
+	<div data-role="collapsible">
+		<h3>Section 2</h3>
+		<p>I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.</p>
+	</div>
+	<div data-role="collapsible">
+		<h3>Section 3</h3>
+		<p>I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.</p>
+	</div>
+	<div data-role="collapsible">
+		<h3>Section 4</h3>
+		<p>I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.</p>
+	</div>
+	<div data-role="collapsible">
+		<h3>Section 5</h3>
+		<p>I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.</p>
+	</div>
+</div>
+
+
+<div data-role="collapsible-set" data-inset="false">
+	<div data-role="collapsible">
+		<h3>I'm a header</h3>
+		<p>I'm the collapsible content.</p>
+	</div>
+	<div data-role="collapsible">
+		<h3>I'm a header</h3>
+		<p>I'm the collapsible content.</p>
+	</div>
+	<div data-role="collapsible">
+		<h3>I'm a header</h3>
+		<p>I'm the collapsible content.</p>
+	</div>
+</div>
+
+<a href="#popupBasic" data-rel="popup">Open Popup</a>
+<div data-role="popup" id="popupBasic">
+<p> This is a completely basic popup, no options set.<p>
+</div>
+
+<div class="ui-grid-a">
+  <div class="ui-block-a"><strong>I'm Block A</strong> and text inside will wrap</div>
+  <div class="ui-block-b"><strong>I'm Block B</strong> and text inside will wrap</div>
+</div><!-- /grid-a -->
+
+<div class="ui-grid-b">
+  <div class="ui-block-a">Block A</div>
+  <div class="ui-block-b">Block B</div>
+  <div class="ui-block-c">Block C</div>
+</div><!-- /grid-b -->
+
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chat class</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+     * { margin: 0; padding: 0; box-sizing: border-box; }
+     body { font: 13px Helvetica, Arial; }
+     form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+     form input { border: 0; padding: 10px; width: 84%; margin-right: .5%; }
+     form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+     #messages { list-style-type: none; margin: 0; padding: 0; }
+     #messages li { padding: 5px 10px; }
+     #messages li:nth-child(odd) { background: #eee; }
+     #join{color: red;}
+     #ma{
+       width: 100px;
+     }
+   </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form  action="">
+      <!-- <input type="text" name="" value="" id="simi"> -->
+      <input type="text" name="" value="" id="ma" placeholder="昵称">
+      <input id="m" autocomplete="off /" placeholder="正在输入中"><button>Send</button>
+    </form>
+    <script src="http://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var socket = io();
+        var username, siminame;
+      $('form').submit(function(){
+        username = $('#ma').val();
+        // siminame = $('#simi').val();
+        $('#ma').val(username);
+        var val = $('#m').val();
+        if(val && username){
+          socket.emit('chat message',val, username);
+          $('#m').val(''); //清空
+          return false;
+        }
+            });
+      socket.on('chat message',function(msg,username2){
+        // $('#messages').append('<li><span style="color:green">' + username2 + '</span>:<br>'+ msg + '</li>');
+        if(username2 === username){
+          $('#messages').append('<li style="text-align:right"><span style="color:green;">' + username2 + ':<i></i></span><br>'+ msg + '</li>');
+            setTimeout(function(){
+              var i = $('#messages li span i');
+              if(i.class !== "glyphicon glyphicon-ok"){
+                i.addClass('glyphicon glyphicon-ok');
+              }
+            },1000);
+
+        }else{
+          $('#messages').append('<li><span style="color:red">' + username2 + '</span>:<br>'+ msg + '</li>');
+        }
+      });
+      socket.on('broadcast', function(msg){
+      console.log('broadcast!');
+       $('ul').prepend('<p><strong>Welcome to new friend.</strong></p>');
+       setTimeout(function(){
+         $("p strong").fadeOut();
+       },5000);
+      });
+
+    </script>
+  </body>
+</html>

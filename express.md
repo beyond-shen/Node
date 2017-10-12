@@ -4,6 +4,8 @@
 
 express是基于nodejs平台的简易，灵活，开放的框架，丰富的http方法和任意排列的组合的connect中间件，对于快速搭建服务器起到很好的帮助
 
+express是一个自身功能极简，完全由路由和中间件构成一个web开发框架
+
 ## 安装
 
 ```shell
@@ -121,6 +123,24 @@ app.use('/',index);
 ```js
 app.use(express.static('public')); //可以利用url直接访问静态文件
 app.use('/static',express.static('public')); // 为静态资源目录指定挂载路径可以实现存放在一个虚拟目录上
+```
+***
+
+3. 中间件：使用可选则挂载路径，可在应用级别或路由级别装载中间件。另外，你还可以同时装在一系列中间件函数，从而在一个挂载点上创建一个子中间件栈。
+
+***
+1. 概念:express的中间件是一个函数，可以访问请求对象(req)和响应对象(res),处于请求和响应之间进行处理。
+2. 功能:执行任何代码，修改请求和响应对象，终结请求-响应循环，调用下一个栈的中间件（若中间件没有终结请求-响应循环，必须调用next('route')将控制权调给下一个中间件，否则请求就会挂起,以上只对app.VERB() + router.VERB()有效）
+3. 应用级中间件：绑定在app对象上，使用app.use()和app.METHOD() 
+```js
+//实现一个挂载点一组中间件（或者使用回调函数组）
+app.use('/user/:id', function(req, res, next) {
+  console.log('Request URL:', req.originalUrl);
+  next();
+}, function (req, res, next) {
+  console.log('Request Type:', req.method);
+  next();
+});
 ```
 ***
 

@@ -22,6 +22,7 @@ $ sudo npm install nodemon -g -f  // 适用于开发
 
 ### 全局包快速搭建(express-generator 应用生成器)
 
+第一步：创建应用
 ```shell 
 express [options] [dir]
 //常见的命令行可选选项:
@@ -35,6 +36,18 @@ express [options] [dir]
 8. -c:(less|stylus|compass|sass) (defaults to plain css) 
 9. --git: 添加.gitignore
 10. -f:
+```
+第二步:安装包
+
+```shell
+$ npm install
+```
+
+第三步:启动应用
+
+```shell
+//linux
+npm start
 ```
 
 ### 本地包的使用

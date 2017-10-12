@@ -49,6 +49,23 @@ $ npm install
 //linux
 npm start
 ```
+#### 结构分析
+
+1. 路由router
+***
+1. 概念:由URL（路径）和一个特定的http方法组成，实现客户端对某个网站节点的访问。每一个路由都有一个或多个处理器函数，当匹配到对应路由就会执行。
+2. 路由结构:app.Method(PATH,HAEDLER),其中app是express的一个实例，METHOD 是某个 HTTP 请求方式中的一个；PATH 是服务器端的路径；HANDLER 是当路由匹配到时需要执行的函数。
+***
+
+2. 静态托管文件
+***
+将静态文件目录作为参数传递给express.static中间件就可以提供静态资源文件的访问，若多个静态目录可以多次调用中间件
+```js
+app.use(express.static('public')); //可以利用url直接访问静态文件
+app.use('/static',express.static('public')); // 为静态资源目录指定挂载路径可以实现存放在一个虚拟目录上
+```
+***
+
 
 ### 本地包的使用
 

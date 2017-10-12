@@ -102,6 +102,15 @@ app.route('/app')
 
 ```js
 router.use() // 加载中间件
+var router = express.Router();
+router.get();
+module.exports = router;
+```
+10. 使用express.Router创建的路由模块的加载:
+```js
+// app.js中
+var index = require('./index');
+app.use('/',index);
 ```
 
 ***

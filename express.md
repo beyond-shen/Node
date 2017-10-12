@@ -90,7 +90,19 @@ res.sendFile | 以八位字节流的形式发送文件|
 res.sendStatus | 设置响应状态代码，并将其以字符串形式作为响应体的一部分发送|
 res.jsonp | 发送一个支持 JSONP 的 JSON 格式的响应。|
 
+8. 创建链式的路由app.route():
 
+```js
+app.route('/app')
+.get()
+.post()
+.put()
+```
+9. 使用express.Router创建模块化、可挂载的路由句柄（Router实例是完整的中间件和路由系统）
+
+```js
+router.use() // 加载中间件
+```
 
 ***
 

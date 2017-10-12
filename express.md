@@ -41,6 +41,6 @@ express [options] [dir]
 
 ```js
 var app = require('express')();
-app.get('/',function(req,res){})
-var server = app.listen(3000,function(){})
+app.get('/',function(req,res){});
+var server = app.listen(3000,function(){});
 ```

@@ -55,6 +55,43 @@ npm start
 ***
 1. 概念:由URL（路径）和一个特定的http方法组成，实现客户端对某个网站节点的访问。每一个路由都有一个或多个处理器函数，当匹配到对应路由就会执行。
 2. 路由结构:app.Method(PATH,HAEDLER),其中app是express的一个实例，METHOD 是某个 HTTP 请求方式中的一个；PATH 是服务器端的路径；HANDLER 是当路由匹配到时需要执行的函数。
+3. 常见的METHOD:get, post, put, head, delete, options, trace, copy, lock, mkcol, move, purge, propfind,  proppatch, unlock, report, mkactivity, checkout, merge, m-search, notify, subscribe, unsubscribe, patch, search, 和 connect。
+4. 特殊METHOD:app.all() --> 对于所有请求都加载中间件
+5. 路径:可以是字符串，字符串模式，正则表达式
+6. 路由句柄(处理函数):可以是一个回调函数，也可以是多个回调函数（指定next对象），也可以是回调函数组
+```js
+// 回调函数组
+var cb0 = function (req, res, next) {
+  console.log('CB0');
+  next();
+}
+
+var cb1 = function (req, res, next) {
+  console.log('CB1');
+  next();
+}
+
+var cb2 = function (req, res) {
+  res.send('Hello from C!');
+}
+
+app.get('/example/c', [cb0, cb1, cb2]);
+```
+7. 响应方法:
+
+方法| 描述 |
+---|------|
+res.end | 终结响应处理流程 |
+res.json | 发送一个json格式响应 |
+res.redirect | 重定向请求处理 |
+res.render | 渲染模板 |
+res.send | 发送各种类型的响应|
+res.sendFile | 以八位字节流的形式发送文件|
+res.sendStatus | 设置响应状态代码，并将其以字符串形式作为响应体的一部分发送|
+res.jsonp | 发送一个支持 JSONP 的 JSON 格式的响应。|
+
+
+
 ***
 
 2. 静态托管文件
@@ -74,3 +111,6 @@ var app = require('express')();
 app.get('/',function(req,res){});
 var server = app.listen(3000,function(){});
 ```
+## express常见问题
+
+[常见问题](http://www.expressjs.com.cn/starter/faq.html)

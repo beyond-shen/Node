@@ -190,7 +190,9 @@ app.use(express.static(path.join(__dirname,'public')));
       4. rolling(是否按照原设定的maxAge值重设session同步到cookie中，要保证session有操作的时候必须设置这个属性为true),
       5. secret(用来注册session id 到cookie中，相当与一个密钥),
       6. secure(设置cookie的secure值，默认是不设置任何值.setSecure(true)的情况下，只有https才传递到服务器端。http是不会传递的),
-      7. cookie的属性如下：httpOnly(禁止对js的访问，cookie无效了),maxAge(单位毫秒，从设置cookie开始多少毫秒失效。如果maxAge和expires都设置了，最后设         置的属性生效.)
+      7. cookie的属性如下：httpOnly(禁止对js的访问，cookie无效了),maxAge(单位毫秒，从设置cookie开始多少毫秒失效。如果maxAge和expires都设置了，最后设置的属性生效.)
+5. morgan:是日志中间件，[详解网址](http://www.cnblogs.com/chyingp/p/node-learning-guide-express-morgan.html)
+6. server-favicon:用来请求图标的,var favicon = require('serve-favicon') --> app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 ```
 
 ***

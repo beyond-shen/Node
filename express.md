@@ -183,7 +183,14 @@ app.use(express.static(path.join(__dirname,'public')));
 1. body-parser:接受post请求的数据，req.body可以获取到post请求
 2. cookie-parser
 3. cookie-session
-4. express-session:常见属性有name(sessionId名，默认是connet.sid),resave(是否重新设置session,要保证有操作为true),saveUninitialized(是否设置session在存储容器中可以给修改),rolling(是否按照原设定的maxAge值重设session同步到cookie中，要保证session有操作的时候必须设置这个属性为true),secret(用来注册session id 到cookie中，相当与一个密钥),secure(设置cookie的secure值，默认是不设置任何值.setSecure(true)的情况下，只有https才传递到服务器端。http是不会传递的),httpOnly(禁止对js的访问，cookie无效了),maxAge(单位毫秒，从设置cookie开始多少毫秒失效。如果maxAge和expires都设置了，最后设置的属性生效.)
+4. express-session:常见属性有
+      1. name(sessionId名，默认是connet.sid),
+      2. resave(是否重新设置session,要保证有操作为true),
+      3. saveUninitialized(是否设置session在存储容器中可以给修改),
+      4. rolling(是否按照原设定的maxAge值重设session同步到cookie中，要保证session有操作的时候必须设置这个属性为true),
+      5. secret(用来注册session id 到cookie中，相当与一个密钥),
+      6. secure(设置cookie的secure值，默认是不设置任何值.setSecure(true)的情况下，只有https才传递到服务器端。http是不会传递的),
+      7. httpOnly(禁止对js的访问，cookie无效了),maxAge(单位毫秒，从设置cookie开始多少毫秒失效。如果maxAge和expires都设置了，最后设置的属性        生效.)
 ```
 
 ***

@@ -143,11 +143,44 @@ app.use('/user/:id', function(req, res, next) {
 });
 ```
 若是想跳过剩余的中间件，可以使用next('route'),只对app.VERB() + router.VERB()有效
-***
+
 4. 路由级中间件:绑定的对象是express.Router()，路由级使用 router.use() 或 router.VERB() 加载。
 ```js
-
+var router = expresss.Router();
+router.get();
+router.route('/')
+.get()
+.post()
 ```
+
+5. 错误处理中间件:错误处理中间件必须有err,req,res,next4个参数，next不用也要签名中声明，否则视为常规中间件
+```js
+// 错误处理
+app.use(function(err,req,res,next){})
+//由于404不是错误，只是无输出，所以需捕获404并处理
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+```
+6. 内置中间件：从4.x开始，内置中间件只有:express.static(root[,options])
+```js
+app.use(express.static(path.join(__dirname,'public')));
+/* 常见的options:
+1. dotfiles:是否输出以点开头的文件，默认为ignore,可写allow和deny
+2. etag：是否启用etag生成，默认true
+3. extensions:设置文件扩展名选项，默认是空数组
+4. maxAge：以毫秒或者字符串格式设置cache-control的max-age属性(可以在network的点击一个文件找到)
+5. index：发送文件目录索引文件，默认为index.html,设置为false禁用
+6. redirect:当路径为目录时，重定向至 “/”。默认是true
+7. setHeaders:设置 HTTP 头以提供文件的函数。
+*/
+```
+7. 
+
+***
+
 
 ### 本地包的使用
 

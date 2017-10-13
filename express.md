@@ -194,9 +194,17 @@ app.use(express.static(path.join(__dirname,'public')));
 5. morgan:是日志中间件，[详解网址](http://www.cnblogs.com/chyingp/p/node-learning-guide-express-morgan.html)
 6. server-favicon:用来请求图标的,var favicon = require('serve-favicon') --> app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 ```
+***
+4. 模板引擎
 
 ***
-
+1. 常用模板:jade,ejs
+2. 设置:
+```js
+app.set('views','./views');  // 设置模板存放路径
+app.set('view engine','ejs'); // 设置模板引擎
+```
+***
 
 ### 本地包的使用
 

@@ -216,3 +216,5 @@ var server = app.listen(3000,function(){});
 ## express常见问题
 
 [常见问题](http://www.expressjs.com.cn/starter/faq.html)
+
+1. 对于ajax请求，不能用res.render进行渲染，因为render方法只有整个页面刷新时才会有效

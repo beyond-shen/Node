@@ -1,6 +1,29 @@
 # Node
 这是node的学习和小项目
 
+## node的安装-linux
+
+### 更新 /etc/apt/sources.list
+
+百度对应版本的阿里源
+
+```sh
+$ sudo apt update
+```
+
+### node
+
+```sh
+$ wget https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-x64.tar.xz
+$ tar -xvf node-v8.9.3-linux-x64.tar.xz
+$ sudo mv node-v8.9.3-linux-x64 /usr/local
+$ sudo ln -s /usr/local/node-v8.9.3-linux-x64/bin/node /usr/local/bin/node 
+$ sudo ln -s /usr/local/node-v8.9.3-linux-x64/bin/npm /usr/local/bin/npm 
+```
+
+
+
+
 ## node的优缺点分析
 
 ### 优点
